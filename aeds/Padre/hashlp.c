@@ -37,16 +37,16 @@ int put(int k, float val){
 
 	stop_cond = stop_condition_idx(k);
 	for(i = hash(k); keys[i] != empty_slot; i = (i+1) % M){
-		if(keys[i] == k)			
+		if(keys[i] == k)
 			break;
-		
+
 		if(i == stop_cond)
 			return 0;
 	}
 
 	keys[i] = k;
-	vals[i] = val;	
-	N += 1; 
+	vals[i] = val;
+	N += 1;
 
 	return 1;
 }
@@ -88,4 +88,44 @@ void display_clusters(){
 			printf("_");
 	}
 	printf("\n");
+}
+
+int del(int key){
+    if(hash != NULL && key != NULL && vals!= NULL && i > 0 )
+    {
+        int i;
+        int stop = stop_condition_idx(key);
+        for(i = hash(key); keys[i] != EMPTY; i = (i+1) % M){
+            if( i == stop){
+            break;
+        }else if( key == keys[i]){
+        keys[i] = EMPTY;
+        values[i] = EMPTY;
+        i--;
+
+        float aux_val;
+        int aux_key;
+
+        int h = hash( key), j= (i+1)% M;
+        while(keys[ j ] != EMPTY){
+            if( j == stop){
+                break;
+            }else if( h == hash(keys[ j ])){
+                aux_key = keys[ j ];
+                keys[i] = aux_key;
+                keys[j] = keys[i];
+                keys[i] = aux_key;
+
+                aux_val = vals[j];
+                vals [ j ] = vals;
+                vals[i] = aux_val;
+                i = j;
+            }
+            j = (j+1) % M;
+        }
+        return 1;
+        }
+    }
+    }
+    return 0;
 }

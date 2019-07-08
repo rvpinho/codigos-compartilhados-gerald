@@ -21,13 +21,13 @@ int main(){
 	put(22, 34.75);
 	put(34, 34.75);
 
-	printf("Displaying only inseted key-values \n\n");
+	printf("Displaying only inserted key-values \n\n");
 	display();
 
 	printf("Displaying all hash table \n\n");
 	display_all();
 
-	printf("Displaying hash table as '*'' and '_' respectivelly occupied and empty slots.\n\n");
+	printf("Displaying hash table as '*'' and '_' respectively occupied and empty slots.\n\n");
 	display_clusters();
 
 
@@ -43,7 +43,7 @@ int main(){
 	}else{
 		printf("key-value inserted.\n");
 	}
-	
-	
+
+
 	return 0;
 }
