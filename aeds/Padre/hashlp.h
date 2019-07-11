@@ -5,7 +5,7 @@
 /*It initializes the keys-vals pairs tabele*/
 void init_hash();
 
-/*It computates the hash value 
+/*It computates the hash value
 	- Return: index to insert the key.
 */
 int hash(int key);
@@ -24,7 +24,7 @@ int put(int key, float value);
 int count_search_miss(int key);
 
 /*It deletes a key-value pair from keys and vals
-Keeping the linear probing property. 
+Keeping the linear probing property.
 	- Return: value assigned to the delete Key
 */
 int del(int key);
@@ -35,7 +35,7 @@ void display();
 /* It prints all hash table*/
 void display_all();
 
-/* It prints the hash table as '*' for filled slots in the 
+/* It prints the hash table as '*' for filled slots in the
 hash table and '_' for the empty ones.*/
 void display_clusters();
 
