@@ -4,16 +4,32 @@
 
 /*It initializes the keys-vals pairs tabele*/
 void init_hash();
+{
 
-/*It computates the hash value 
-	- Return: index to insert the key.
-*/
+    /*It computates the hash value
+    	- Return: index to insert the key.*/
+    int i=0, auxiliar=0;
+
+    for(i=0; i<key; i++)
+    {
+        if(keys[i==empty_slot])
+        {
+            auxiliar++;
+        }
+    }
+
+    printf("%d \n", auxiliar);
+    return 1;
+}
+
 int hash(int key);
+{
 
-/*It implements a linear probing key-val insertion
-	- Return: 1 of successful insertion
-			0 otherwise
-*/
+    /*It implements a linear probing key-val insertion
+    	- Return: 1 of successful insertion
+    			0 otherwise*/
+
+}
 int put(int key, float value);
 
 
@@ -24,18 +40,24 @@ int put(int key, float value);
 int count_search_miss(int key);
 
 /*It deletes a key-value pair from keys and vals
-Keeping the linear probing property. 
+Keeping the linear probing property.
 	- Return: value assigned to the delete Key
 */
 int del(int key);
+{
+    /* It prints the current state of the hash table*/
 
-/* It prints the current state of the hash table*/
+}
+
 void display();
-
 /* It prints all hash table*/
+{
+
+}
+
 void display_all();
 
-/* It prints the hash table as '*' for filled slots in the 
+/* It prints the hash table as '*' for filled slots in the
 hash table and '_' for the empty ones.*/
 void display_clusters();
 

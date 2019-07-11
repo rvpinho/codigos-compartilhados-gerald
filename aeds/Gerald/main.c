@@ -10,7 +10,7 @@ int main(){
 	int i, sum_cost;
 	srand(time(0));
 
-	M = 5; // You can set the size of hash tab.
+	M = 20; // You can set the size of hash tab.
 
 	init_hash();
 
@@ -43,7 +43,7 @@ int main(){
 	}else{
 		printf("key-value inserted.\n");
 	}
-	
-	
+
+
 	return 0;
 }
