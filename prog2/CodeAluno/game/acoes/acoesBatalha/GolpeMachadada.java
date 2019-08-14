@@ -8,5 +8,5 @@ public class GolpeMachadada extends AcaoMagica{
 
     public GolpeMachadada(Entidade agente, int IDAlvo){
         super(agente, IDAlvo, 100));
-    }
+    }    
 }
