@@ -1,0 +1,99 @@
+# depslib dependency file v1.0
+1567190795 source:c:\users\ismae\documents\ufop\arquivos code block\estoque\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1567188535 c:\users\ismae\documents\ufop\arquivos code block\estoque\cliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1567190444 source:c:\users\ismae\documents\ufop\arquivos code block\estoque\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+	"Produto.h"
+	"Vendas.h"
+	"Modulo.h"
+
+1567188535 c:\users\ismae\documents\ufop\arquivos code block\estoque\produto.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1567189608 c:\users\ismae\documents\ufop\arquivos code block\estoque\vendas.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1567175558 c:\users\ismae\documents\ufop\arquivos code block\estoque\modulo.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+	"Produto.h"
+	"Vendas.h"
+
+1566841164 source:c:\users\ismae\documents\ufop\arquivos code block\estoque\modulo.c
+	"Modulo.h"
+
+1567190203 source:c:\users\ismae\documents\ufop\arquivos code block\estoque\produto.c
+	<stdio.h>
+	<stdlib.h>
+	"Produto.h"
+
+1567190444 source:c:\users\ismae\documents\ufop\arquivos code block\estoque\vendas.c
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+
+1567998506 source:c:\users\ismae\onedrive\codigos\codigos\estoque\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1567998506 c:\users\ismae\onedrive\codigos\codigos\estoque\cliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1567996846 source:c:\users\ismae\onedrive\codigos\codigos\estoque\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+
+1567985778 c:\users\ismae\onedrive\codigos\codigos\estoque\produto.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1568137911 c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+	"Produto.h"
+	"Menus.h"
+
+1567175558 c:\users\ismae\onedrive\codigos\codigos\estoque\modulo.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+	"Produto.h"
+	"Vendas.h"
+
+1566841164 source:c:\users\ismae\onedrive\codigos\codigos\estoque\modulo.c
+	"Modulo.h"
+
+1567995911 source:c:\users\ismae\onedrive\codigos\codigos\estoque\produto.c
+	<stdio.h>
+	<stdlib.h>
+	"Produto.h"
+
+1567998506 source:c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.c
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+
+1568137910 c:\users\ismae\onedrive\codigos\codigos\estoque\menus.h
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+
