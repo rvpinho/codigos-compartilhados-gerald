@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include "Cliente.h"
 #include "Produto.h"
-#include "Menus.h"
 
 typedef struct vendas
 {
@@ -26,10 +25,10 @@ void LerVendas(TVendas *Venda);
 void ImprimirVendas(TVendas IVendas);
 void IniciarModuloVendas(TModuloVendas *modulo);
 void InserirVendas(TModuloVendas *modulo, TVendas venda);
-int PesquisarVendas(TModuloVendas modulo, TVendas venda);
+int PesquisarVendas(TModuloVendas moduloV, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
 void ImprimirGeralV(TModuloVendas modulo, TVendas venda);
-void AlterarVendas(TModuloVendas *modulo, TVendas venda);
-void ExcluirVendas(TModuloVendas *modulo, TVendas vendas);
+void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
+void ExcluirVendas(TModuloVendas *modulo, TVendas vendas, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
 
 
 #endif // VENDAS_H_INCLUDED

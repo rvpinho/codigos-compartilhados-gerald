@@ -28,7 +28,7 @@ void LerProduto(TProdutos *produto)
     scanf("%d", &produto->DataFabricacao.dia);
 
     printf("\nMes de farbicacao: ");
-    fflush(stdin);
+
     scanf("%d", &produto->DataFabricacao.mes);
 
     printf("\nAno de farbicacao: ");
@@ -82,9 +82,11 @@ int PesquisarProduto(TModuloProduto modulo, TProdutos produto)
     {
         if(produto.CodigoProduto == modulo.vetor[i].CodigoProduto)
         {
+            printf("\nProduto encontrado!");
             return i;
         }
     }
+    printf("\nNao foi possivel encontrar o produto!");
     return -1;
 }
 
@@ -104,15 +106,10 @@ void AlterarProduto(TModuloProduto *modulo, TProdutos produto)
     i = PesquisarProduto(*modulo, produto);
     if( i != -1)
     {
-        printf("\nProduto encontrado!!");
         LerProduto(&produto);
         modulo->vetor[i] = produto;
         ImprimirProduto(modulo->vetor[i]);
         printf("\nProduto alterado com sucesso!!");
-    }
-    else
-    {
-        printf("\nProduto nao encontrado!!");
     }
 
 }
@@ -123,7 +120,6 @@ void ExcluirProduto(TModuloProduto *modulo, TProdutos produto)
     i = PesquisarProduto(*modulo, produto);
     if( i != -1)
     {
-        printf("\nProduto encontrado!!");
         for( n = i ; n < modulo->indice - 1; n++)
         {
             modulo->vetor[n] = modulo->vetor[n+1];
@@ -131,9 +127,4 @@ void ExcluirProduto(TModuloProduto *modulo, TProdutos produto)
         modulo->indice = modulo->indice -1;
         printf("\nProduto excluido com sucesso!!");
     }
-    else
-    {
-        printf("\nProduto nao encontrado!!");
-    }
-
 }

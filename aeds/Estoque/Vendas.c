@@ -7,7 +7,7 @@ void IniciarModuloVendas(TModuloVendas *modulo)
     modulo->indice = 0;
 }
 
-//Função Ler Venda
+//FunÃ§Ã£o Ler Venda
 void LerVendas(TVendas *Venda)
 {
     printf("\n======CADASTRO DE VENDA======");
@@ -80,53 +80,67 @@ void InserirVendas(TModuloVendas *modulo, TVendas venda)
     }
 }
 
-int PesquisarVendas(TModuloVendas modulo, TVendas venda)
+int PesquisarVendas(TModuloVendas modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto)
 {
-    int i;
+    int i,j,k;
     for( i = 0; i < modulo.indice; i++)
     {
         if(venda.Codigo == modulo.vetor[i].Codigo)
-        {
-            return i;
-        }
+        {   printf("\nCodigo da venda correto!!");
+            for( j = 0; j < moduloC.indice; j++)
+            {
+                if(cliente.ID == moduloC.vetor[i].ID)
+                {
+                    printf("\nID correto!!");
+                    for( k = 0; k < moduloP.indice; j++)
+                    {
+                        if(produto.CodigoProduto == moduloP.vetor[i].CodigoProduto)
+                        {
+                            printf("\nCodigo do produto encontrado!!");
+                            printf("\nVenda encontrada!!");
+                            return i;
+                        }else{printf("\nCodigo do produto incorreto");
+                        break;}
+                    }
+                }else{printf("\nID incorreto!!");
+                break;}
+            }
+        }else{printf("\nCodigo da venda incorreto!!");
+        break;}
     }
+
+    printf("\nNao foi possivel encontrar a venda!");
     return -1;
 }
 
 void ImprimirGeralV(TModuloVendas modulo, TVendas venda)
 {
-     int i;
+    int i;
     for( i = 0; i < modulo.indice; i++)
     {
         ImprimirVendas(modulo.vetor[i]);
     }
 }
 
-void AlterarVendas(TModuloVendas *modulo, TVendas venda)
+void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto)
 {
     int i;
-    i = PesquisarVendas(*modulo, venda);
+    i = PesquisarVendas(*modulo, venda, moduloC, cliente, moduloP, produto);
     if( i != -1)
     {
-        printf("\nVenda encontrada!!");
         LerVendas(&venda);
         modulo->vetor[i] = venda;
         ImprimirVendas(modulo->vetor[i]);
         printf("\nVenda alterada com sucesso!!");
     }
-    else
-    {
-        printf("\nVenda nao encontrada!!");
-    }
 }
 
-void ExcluirVendas(TModuloVendas *modulo, TVendas vendas)
+void ExcluirVendas(TModuloVendas *modulo, TVendas vendas, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto)
 {
     int i, n;
-    i = PesquisarVendas(*modulo, vendas);
+    i = PesquisarVendas(*modulo, vendas, moduloC, cliente, moduloP, produto);
     if( i != -1)
     {
-        printf("\nVenda encontrada!!");
         for( n = i ; n < modulo->indice - 1; n++)
         {
             modulo->vetor[n] = modulo->vetor[n+1];
@@ -134,8 +148,5 @@ void ExcluirVendas(TModuloVendas *modulo, TVendas vendas)
         modulo->indice = modulo->indice -1;
         printf("\nVenda excluida com sucesso!!");
     }
-    else
-    {
-        printf("\nVenda nao encontrada!!");
-    }
+
 }

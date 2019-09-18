@@ -121,9 +121,11 @@ int PesquisarCliente(TModuloCliente modulo, TClientes cliente)
     {
         if(cliente.ID == modulo.vetor[i].ID)
         {
+            printf("\nCliente encontrado!");
             return i;
         }
     }
+    printf("\nNao foi possivel encontrar o cliente!");
     return -1;
 }
 
@@ -142,16 +144,12 @@ void AlterarCliente(TModuloCliente *modulo, TClientes cliente)
     i = PesquisarCliente(*modulo, cliente);
     if( i != -1)
     {
-        printf("\nCliente encontrado!!");
         LerCliente(&cliente);
         modulo->vetor[i] = cliente;
         ImprimirCliente(modulo->vetor[i]);
         printf("\nCliente alterado com sucesso!!");
     }
-    else
-    {
-        printf("\nCliente nao encontrado!!");
-    }
+
 }
 
 void ExcluirCliente(TModuloCliente *modulo, TClientes cliente)
@@ -160,7 +158,6 @@ void ExcluirCliente(TModuloCliente *modulo, TClientes cliente)
     i = PesquisarCliente(*modulo, cliente);
     if( i != -1)
     {
-        printf("\nCliente encontrado!!");
         for( n = i ; n < modulo->indice - 1; n++)
         {
             modulo->vetor[n] = modulo->vetor[n+1];
@@ -168,8 +165,5 @@ void ExcluirCliente(TModuloCliente *modulo, TClientes cliente)
         modulo->indice = modulo->indice -1;
         printf("\nCliente excluido com sucesso!!");
     }
-    else
-    {
-        printf("\nCliente nao encontrado!!");
-    }
+
 }
