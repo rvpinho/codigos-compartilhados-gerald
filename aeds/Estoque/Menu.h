@@ -7,7 +7,7 @@
 void MenuPrincipal(TModuloProduto *ModuloP, TProdutos produto, TModuloCliente *ModuloC, TClientes Clientes, TModuloVendas *ModuloV, TVendas vendas);
 void SubMenuCliente(TModuloCliente *ModuloC, TClientes cliente);
 void SubMenuProduto(TModuloProduto *ModuloP, TProdutos produto);
-void SubMenuVenda(TModuloProduto *ModuloP, TProdutos produto, TModuloCliente *ModuloC, TClientes Clientes, TModuloVendas *ModuloV, TVendas vendas);
+void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* ModuloC, TClientes Clientes, TModuloVendas* ModuloV, TVendas vendas);
 void MSG_Principal();
 void MSG_Cliente();
 void MSG_Produto();

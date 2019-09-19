@@ -27,7 +27,7 @@ typedef struct endereco
 //Struct do Cliente
 typedef struct Clientes
 {
-    int ID;
+    char ID[TAM];
     int Tipo;
     TEndereco EnderecoCompleto;
     TData DataCompleta;

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Cliente.h"
 
 void IniciarModuloCliente(TModuloCliente *modulo)
@@ -19,13 +20,13 @@ void LerCliente(TClientes *cliente)
     {
         printf("\nDigite o CPF: ");
         fflush(stdin);
-        scanf("%d", &cliente->ID);
+        fgets(cliente->ID, TAM, stdin);
     }
     else
     {
         printf("\nDigite o CNPJ: ");
         fflush(stdin);
-        scanf("%d", &cliente->ID);
+        fgets(cliente->ID, TAM, stdin);
     }
 
     printf("\nNome: ");
@@ -82,15 +83,15 @@ void ImprimirCliente(TClientes ICliente)
     if(ICliente.Tipo == 0)
     {
         printf("Tipo: Fisico");
-        printf("\nCPF: %d", ICliente.ID);
+        printf("\nCPF: %s", ICliente.ID);
     }
     else
     {
         printf("Tipo: Juridico");
-        printf("\nCNPJ: %d",ICliente.ID);
+        printf("\nCNPJ: %s",ICliente.ID);
     }
 
-    printf("\nIdentidade: %d",ICliente.Identidade);
+    printf("Identidade: %d",ICliente.Identidade);
     printf("\nData de nascimento: %d/%d/%d", ICliente.DataCompleta.dia,ICliente.DataCompleta.mes,ICliente.DataCompleta.ano);
     printf("\nEndereco: %s", ICliente.EnderecoCompleto.logadouro);
     printf("Numero: %d", ICliente.EnderecoCompleto.numero);
@@ -116,10 +117,11 @@ void InserirCliente(TModuloCliente *modulo, TClientes cliente)
 
 int PesquisarCliente(TModuloCliente modulo, TClientes cliente)
 {
-    int i;
+    int i, j;
     for( i = 0; i < modulo.indice; i++)
     {
-        if(cliente.ID == modulo.vetor[i].ID)
+        j = strcmp(cliente.ID, modulo.vetor[i].ID);
+        if( j == 0 )
         {
             printf("\nCliente encontrado!");
             return i;

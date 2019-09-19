@@ -107,7 +107,7 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
         {
         case 1:
             LerVendas(&vendas);
-            InserirVendas(ModuloV, vendas);
+            InserirVendas(ModuloV, vendas, ModuloP, *ModuloC);
             break;
         case 2:
             printf("\nDigite o codigo da venda:");
@@ -118,7 +118,7 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &Clientes.ID);
+            fgets(Clientes.ID, TAM, stdin);
             PesquisarVendas(*ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
             break;
         case 3:
@@ -130,7 +130,7 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &Clientes.ID);
+            fgets(Clientes.ID, TAM, stdin);
             AlterarVendas(ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
             break;
         case 4:
@@ -142,7 +142,7 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &Clientes.ID);
+            fgets(Clientes.ID, TAM, stdin);
             ExcluirVendas(ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
             break;
         case 5:
@@ -154,7 +154,7 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &Clientes.ID);
+            fgets(Clientes.ID, TAM, stdin);
             i = PesquisarVendas(*ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
             if( i != -1){
             ImprimirVendas(ModuloV->vetor[i]);
@@ -193,25 +193,25 @@ void SubMenuCliente(TModuloCliente* ModuloC, TClientes cliente)
         case 2:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &cliente.ID);
+            fgets(cliente.ID, TAM, stdin);
             PesquisarCliente(*ModuloC, cliente);
             break;
         case 3:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &cliente.ID);
+            fgets(cliente.ID, TAM, stdin);
             AlterarCliente(ModuloC, cliente);
             break;
         case 4:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &cliente.ID);
+            fgets(cliente.ID, TAM, stdin);
             ExcluirCliente(ModuloC, cliente);
             break;
         case 5:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
-            scanf("%d", &cliente.ID);
+            fgets(cliente.ID, TAM, stdin);
             i = PesquisarCliente(*ModuloC, cliente);
             if( i != -1){
             ImprimirCliente(ModuloC->vetor[i]);
