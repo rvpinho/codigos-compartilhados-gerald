@@ -89,12 +89,12 @@ void InserirVendas(TModuloVendas *modulo, TVendas venda, TModuloProduto *moduloP
         {
             if( j != -1)
             {
-                if(moduloP->vetor[i].EstoqueProduto > venda.Quantidade)
+                if(moduloP->vetor[i].EstoqueProduto >= venda.Quantidade)
                 {
-                    venda.Peco = venda.Quantidade * produto.PrecoUnitario;
                     modulo->vetor[modulo->indice] = venda;
+                    modulo->vetor[modulo->indice].Peco = modulo->vetor[modulo->indice].Quantidade * moduloP->vetor[i].PrecoUnitario;
+                    moduloP->vetor[i].EstoqueProduto = moduloP->vetor[i].EstoqueProduto - modulo->vetor[modulo->indice].Quantidade;
                     modulo->indice++;
-                    produto.EstoqueProduto = produto.EstoqueProduto - venda.Quantidade;
                     printf("\nVenda cadastrado com sucesso!!");
                 }
                 else
@@ -120,49 +120,34 @@ void InserirVendas(TModuloVendas *modulo, TVendas venda, TModuloProduto *moduloP
     }
 }
 
-int PesquisarVendas(TModuloVendas modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto)
+int PesquisarVendas(TModuloVendas modulo, TVendas venda,  TClientes cliente, TProdutos produto)
 {
-    int i, j, k;
-    for( i = 0; i < modulo.indice; i++)
+    int i, j, prod = -1, clie = -1;
+
+    for(i = 0; i <= modulo.indice; i++)
     {
-        if(venda.Codigo == modulo.vetor[i].Codigo)
+       j = strcmp(cliente.ID, modulo.vetor[i].Nome);
+       if( j == 0)
+       {
+           clie = i;
+       }
+    }
+    for(i = 0; i <= modulo.indice; i++)
+    {
+        if( produto.CodigoProduto == modulo.vetor[i].Codigo)
         {
-            printf("\nCodigo da venda correto!!");
-            for( j = 0; j < moduloC.indice; j++)
-            {
-                if(cliente.ID == moduloC.vetor[i].ID)
-                {
-                    printf("\nID correto!!");
-                    for( k = 0; k < moduloP.indice; j++)
-                    {
-                        if(produto.CodigoProduto == moduloP.vetor[i].CodigoProduto)
-                        {
-                            printf("\nCodigo do produto encontrado!!");
-                            printf("\nVenda encontrada!!");
-                            return i;
-                        }
-                        else
-                        {
-                            printf("\nCodigo do produto incorreto");
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    printf("\nID incorreto!!");
-                    break;
-                }
-            }
-        }
-        else
-        {
-            printf("\nCodigo da venda incorreto!!");
-            break;
+            prod = i;
         }
     }
 
-    printf("\nNao foi possivel encontrar a venda!");
+    if( (clie != -1) && (prod != -1) )
+    {
+        printf("\nVenda encontrada!!");
+        return clie;
+    }else
+    {
+        printf("\nVenda nao encontrada!!");
+    }
     return -1;
 }
 
@@ -175,23 +160,34 @@ void ImprimirGeralV(TModuloVendas modulo, TVendas venda)
     }
 }
 
-void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto)
+void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto *moduloP, TProdutos produto)
 {
-    int i;
-    i = PesquisarVendas(*modulo, venda, moduloC, cliente, moduloP, produto);
+    int i, j, aux;
+    i = PesquisarVendas(*modulo, venda, cliente, produto);
+    j= PesquisarProduto(*moduloP, produto);
     if( i != -1)
     {
         LerVendas(&venda);
+        aux = moduloP->vetor[j].EstoqueProduto + modulo->vetor[i].Quantidade; //voltar estoque
+
+        if(moduloP->vetor[i].EstoqueProduto + aux >= venda.Quantidade){
         modulo->vetor[i] = venda;
+
+        modulo->vetor[i].Peco = modulo->vetor[i].Quantidade * moduloP->vetor[i].PrecoUnitario;
+        moduloP->vetor[j].EstoqueProduto = aux- modulo->vetor[i].Quantidade;
         ImprimirVendas(modulo->vetor[i]);
         printf("\nVenda alterada com sucesso!!");
+    }else
+    {
+        printf("\nEstoque insuficiente!!");
+    }
     }
 }
 
 void ExcluirVendas(TModuloVendas *modulo, TVendas vendas, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto)
 {
     int i, n;
-    i = PesquisarVendas(*modulo, vendas, moduloC, cliente, moduloP, produto);
+    i = PesquisarVendas(*modulo, vendas, cliente, produto);
     if( i != -1)
     {
         for( n = i ; n < modulo->indice - 1; n++)

@@ -7,7 +7,7 @@ void MenuPrincipal(TModuloProduto *ModuloP, TProdutos produto, TModuloCliente *M
     int opcao = 0;
     do
     {
-        //system("cls");
+        system("cls");
         MSG_Principal();
         printf("\nDigite uma opcao:");
         fflush(stdin);
@@ -39,7 +39,8 @@ void SubMenuProduto(TModuloProduto* ModuloP, TProdutos produto)
      int i ;
     do
     {
-        //system("cls");
+
+        system("cls");
         MSG_Produto();
         printf("\nDigite uma opcao:");
         fflush(stdin);
@@ -50,6 +51,8 @@ void SubMenuProduto(TModuloProduto* ModuloP, TProdutos produto)
         case 1:
             LerProduto(&produto);
             InserirProduto(ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
             //PESQUISAR
         case 2:
@@ -57,18 +60,24 @@ void SubMenuProduto(TModuloProduto* ModuloP, TProdutos produto)
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             PesquisarProduto(*ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 3:
             printf("\nDigite o codigo do produto:");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             AlterarProduto(ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 4:
             printf("\nDigite o codigo do produto:");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             ExcluirProduto(ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 5:
             printf("\nDigite o codigo do produto:");
@@ -78,12 +87,17 @@ void SubMenuProduto(TModuloProduto* ModuloP, TProdutos produto)
             if( i != -1){
             ImprimirProduto(ModuloP->vetor[i]);
             }
+            printf("\n");
+            system("PAUSE");
             break;
         case 6:
             ImprimirGeral(*ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 7:
             printf("Retornando ao menu principal");
+            printf("\n");
             system("PAUSE");
         default:
             printf("digite uma opcao valida!");
@@ -98,7 +112,7 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
      int i ;
     do
     {
-        //system("cls");
+        system("cls");
         MSG_Vendas();
         printf("\nDigite uma opcao:");
         fflush(stdin);
@@ -108,63 +122,64 @@ void SubMenuVenda(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* Mo
         case 1:
             LerVendas(&vendas);
             InserirVendas(ModuloV, vendas, ModuloP, *ModuloC);
+            printf("\n");
+            system("PAUSE");
             break;
         case 2:
-            printf("\nDigite o codigo da venda:");
-            fflush(stdin);
-            scanf("%d", &vendas.Codigo);
             printf("\nDigite o codigo do produto:");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(Clientes.ID, TAM, stdin);
-            PesquisarVendas(*ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
+            PesquisarVendas(*ModuloV, vendas, Clientes, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 3:
-            printf("\nDigite o codigo da venda:");
-            fflush(stdin);
-            scanf("%d", &vendas.Codigo);
             printf("\nDigite o codigo do produto:");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(Clientes.ID, TAM, stdin);
-            AlterarVendas(ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
+            AlterarVendas(ModuloV, vendas, *ModuloC, Clientes, ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 4:
-            printf("\nDigite o codigo da venda:");
-            fflush(stdin);
-            scanf("%d", &vendas.Codigo);
             printf("\nDigite o codigo do produto:");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(Clientes.ID, TAM, stdin);
+
             ExcluirVendas(ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
+            printf("\n");
+            system("PAUSE");
             break;
         case 5:
-            printf("\nDigite o codigo da venda:");
-            fflush(stdin);
-            scanf("%d", &vendas.Codigo);
             printf("\nDigite o codigo do produto:");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(Clientes.ID, TAM, stdin);
-            i = PesquisarVendas(*ModuloV, vendas, *ModuloC, Clientes, *ModuloP, produto);
-            if( i != -1){
+            i = PesquisarVendas(*ModuloV, vendas, Clientes, produto);
+            if( i != -1 ){
             ImprimirVendas(ModuloV->vetor[i]);
-            }
+            }printf("\n");
+            system("PAUSE");
             break;
         case 6:
             ImprimirGeralV(*ModuloV, vendas);
+            printf("\n");
+            system("PAUSE");
             break;
         case 7:
             printf("Retornando ao menu principal");
+            printf("\n");
             system("PAUSE");
         default:
             printf("digite uma opcao valida!");
@@ -179,7 +194,7 @@ void SubMenuCliente(TModuloCliente* ModuloC, TClientes cliente)
      int i;
     do
     {
-        //system("cls");
+        system("cls");
         MSG_Cliente();
         printf("\nDigite uma opcao:");
         fflush(stdin);
@@ -189,24 +204,32 @@ void SubMenuCliente(TModuloCliente* ModuloC, TClientes cliente)
         case 1:
             LerCliente(&cliente);
             InserirCliente(ModuloC, cliente);
+            printf("\n");
+            system("PAUSE");
             break;
         case 2:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(cliente.ID, TAM, stdin);
             PesquisarCliente(*ModuloC, cliente);
+            printf("\n");
+            system("PAUSE");
             break;
         case 3:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(cliente.ID, TAM, stdin);
             AlterarCliente(ModuloC, cliente);
+            printf("\n");
+            system("PAUSE");
             break;
         case 4:
             printf("\nDigite o CPF/CNPJ do cliente:");
             fflush(stdin);
             fgets(cliente.ID, TAM, stdin);
             ExcluirCliente(ModuloC, cliente);
+            printf("\n");
+            system("PAUSE");
             break;
         case 5:
             printf("\nDigite o CPF/CNPJ do cliente:");
@@ -216,12 +239,17 @@ void SubMenuCliente(TModuloCliente* ModuloC, TClientes cliente)
             if( i != -1){
             ImprimirCliente(ModuloC->vetor[i]);
             }
+            printf("\n");
+            system("PAUSE");
             break;
         case 6:
             ImprimirGeralC(*ModuloC, cliente);
+            printf("\n");
+            system("PAUSE");
             break;
         case 7:
             printf("Retornando ao menu principal");
+            printf("\n");
             system("PAUSE");
         default:
             printf("digite uma opcao valida!");

@@ -27,9 +27,9 @@ void LerVendas(TVendas *Venda);
 void ImprimirVendas(TVendas IVendas);
 void IniciarModuloVendas(TModuloVendas *modulo);
 void InserirVendas(TModuloVendas *modulo, TVendas venda, TModuloProduto *moduloP, TModuloCliente moduloC);
-int PesquisarVendas(TModuloVendas moduloV, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
+int PesquisarVendas(TModuloVendas modulo, TVendas venda,  TClientes cliente, TProdutos produto);
 void ImprimirGeralV(TModuloVendas modulo, TVendas venda);
-void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
+void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto *moduloP, TProdutos produto);
 void ExcluirVendas(TModuloVendas *modulo, TVendas vendas, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
 
 

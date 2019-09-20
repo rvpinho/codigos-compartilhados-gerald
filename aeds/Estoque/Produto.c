@@ -108,7 +108,6 @@ void AlterarProduto(TModuloProduto *modulo, TProdutos produto)
     {
         LerProduto(&produto);
         modulo->vetor[i] = produto;
-        ImprimirProduto(modulo->vetor[i]);
         printf("\nProduto alterado com sucesso!!");
     }
 

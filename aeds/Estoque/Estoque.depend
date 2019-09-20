@@ -56,7 +56,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1568745820 source:c:\users\ismae\onedrive\codigos\codigos\estoque\main.c
+1568947826 source:c:\users\ismae\onedrive\codigos\codigos\estoque\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Vendas.h"
@@ -67,7 +67,7 @@
 	<stdlib.h>
 	"Cliente.h"
 
-1568935889 c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.h
+1568956583 c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.h
 	<stdio.h>
 	<stdlib.h>
 	"Cliente.h"
@@ -83,12 +83,12 @@
 1566841164 source:c:\users\ismae\onedrive\codigos\codigos\estoque\modulo.c
 	"Modulo.h"
 
-1568781383 source:c:\users\ismae\onedrive\codigos\codigos\estoque\produto.c
+1568948353 source:c:\users\ismae\onedrive\codigos\codigos\estoque\produto.c
 	<stdio.h>
 	<stdlib.h>
 	"Produto.h"
 
-1568934168 source:c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.c
+1568958345 source:c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -104,7 +104,7 @@
 	<stdlib.h>
 	"Vendas.h"
 
-1568932977 source:c:\users\ismae\onedrive\codigos\codigos\estoque\menu.c
+1568956583 source:c:\users\ismae\onedrive\codigos\codigos\estoque\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"Menu.h"
