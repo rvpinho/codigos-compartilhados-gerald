@@ -109,3 +109,51 @@
 	<stdlib.h>
 	"Menu.h"
 
+1568995400 source:d:\codigos-compartilhados-gerald\aeds\estoque\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Cliente.h"
+
+1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\cliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1568995400 source:d:\codigos-compartilhados-gerald\aeds\estoque\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+	"Menu.h"
+
+1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\vendas.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+	"Produto.h"
+
+1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\produto.h
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\menu.h
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+
+1568995400 source:d:\codigos-compartilhados-gerald\aeds\estoque\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"Menu.h"
+
+1568995400 source:d:\codigos-compartilhados-gerald\aeds\estoque\produto.c
+	<stdio.h>
+	<stdlib.h>
+	"Produto.h"
+
+1568995400 source:d:\codigos-compartilhados-gerald\aeds\estoque\vendas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Vendas.h"
+

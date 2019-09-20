@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vendas.h"
+#include "TVendas.h"
 #include "Menu.h"
 
 
 int main()
 {
-    //DeclaraÃ§Ã£o auxiliares
+    //Declaração auxiliares
     TClientes cliente1;
     TProdutos produto1;
     TVendas venda1;
@@ -14,7 +14,7 @@ int main()
     TModuloCliente modulo2;
     TModuloVendas modulo3;
 
-    //InicializaÃ§Ã£o
+    //Inicialização
     IniciarModuloProduto(&modulo1);
     IniciarModuloCliente(&modulo2);
     IniciarModuloVendas(&modulo3);
@@ -22,9 +22,10 @@ int main()
     MenuPrincipal(&modulo1, produto1, &modulo2, cliente1, &modulo3, venda1);
 
     //Teste 1: Leitura
-    for(int a = 0; a < 4; a++){
-    LerProduto(&produto1);
-    InserirProduto(&modulo1, produto1);
+    /*for(int a = 0; a < 4; a++)
+    {
+        LerProduto(&produto1);
+        InserirProduto(&modulo1, produto1);
     }
     system("cls");
 
@@ -37,7 +38,7 @@ int main()
     system("cls");
 
     //Teste 2: Pesquisa
-    printf("\nDigite um codigo: ");
+    printf("\nDIGITE O CODIGO DO PRODUTO ");
     fflush(stdin);
     scanf("%d", &produto1.CodigoProduto);
 
@@ -46,17 +47,18 @@ int main()
 
     if( i != -1 )
     {
-        printf("\nProduto encontrado!!\n");
+        printf("\nPRODUTO ENCONTRADO\n");
         ImprimirProduto(modulo1.vetor[i]);
     }
     else
     {
-        printf("\nNao encontrado!!\n");
+        printf("\nERRO: PRODUTO NAO ENCONTRADO\n");
     }
 
     ImprimirGeral(modulo1, produto1);
+
     //Teste 3: Alterar
-    printf("\nDigite o codigo do produto para alterar: ");
+    printf("\nDIGITE O CODIGO DO PRODUTO QUE DESEJA ALTERAR: ");
     fflush(stdin);
     scanf("%d", &produto1.CodigoProduto);
     AlterarProduto(&modulo1, produto1);
@@ -65,11 +67,12 @@ int main()
     printf("\n");
 
     //Teste 4: Excluir
-    printf("\nDigite o codigo do produto para excluir: ");
+    printf("\nDIGITE O CODIGO DO PRODUTO QUE DESEJA EXCLUIR: ");
     fflush(stdin);
     scanf("%d", &produto1.CodigoProduto);
     ExcluirProduto(&modulo1, produto1);
     printf("\n");
-    ImprimirGeral(modulo1, produto1);
+    ImprimirGeral(modulo1, produto1);*/
+
     return 0;
 }

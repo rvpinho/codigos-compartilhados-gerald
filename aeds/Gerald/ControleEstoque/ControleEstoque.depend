@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1568957996 source:d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tvendas.c
+	<stdlib.h>
+	<stdio.h>
+	"TVendas.h"
+
+1569002040 d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tvendas.h
+	<stdio.h>
+	<stdlib.h>
+	"TProduto.h"
+
+1569002411 d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tcliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1567192030 source:d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tmodulo.c
+	"TModulo.h"
+
+1568997374 d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tmodulo.h
+	<stdio.h>
+	<stdlib.h>
+	"TCliente.h"
+	"TProduto.h"
+	"TVendas.h"
+
+1569002452 d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tproduto.h
+	<stdio.h>
+	<stdlib.h>
+	"TCliente.h"
+
+1568996269 source:d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tproduto.c
+	"TProduto.h"
+
+1568997660 source:d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\tcliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TCliente.h"
+
+1567207202 source:d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TVendas.h"
+
+1568997374 d:\onedrive\documentos\escola\ufop\4º período\aeds i\prática\controleestoque\menu.h
+	<stdio.h>
+	<stdlib.h>
+	"Vendas.h"
+
