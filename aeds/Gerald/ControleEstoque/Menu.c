@@ -57,7 +57,7 @@ void SubMenuProdutos(TModuloProduto *moduloP, TProdutos produto)
             printf("DIGITE O CODIGO DO PRODUTO");
             fflush(stdin);
             scanf("%d", &produto.CodigoProduto);
-            PesquisarProduto(moduloP, produto);
+            PesquisarProduto(*moduloP, produto);
             break;
         case 3:
             printf("DIGITE O CODIGO DO PRODUTO");

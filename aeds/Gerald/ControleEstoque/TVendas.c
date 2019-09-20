@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "TVendas.h"    //INCLUIR .H DE VENDAS
-#include "TCliente.h"
+
 
 void LerVendas(TVendas *vendaa)
 {

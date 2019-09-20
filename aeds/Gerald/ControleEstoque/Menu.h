@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vendas.h"
+#include "TVendas.h"
 
 void MenuPrincipal (TModuloProduto *ModuloP, TProdutos Produto, TModuloCliente *ModuloC, TClientes Clientes, TModuloVendas *ModuloV, TVendas Vendas );
 void SubMenuProdutos(TModuloProduto *moduloP, TProdutos produto);
