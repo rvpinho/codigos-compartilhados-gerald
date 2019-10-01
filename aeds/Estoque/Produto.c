@@ -23,15 +23,15 @@ void LerProduto(TProdutos *produto)
     fflush(stdin);
     fgets(produto->DescricaoProduto, TAM, stdin);
 
-    printf("\nDia de farbicacao: ");
+    printf("\nDia de fabricacao: ");
     fflush(stdin);
     scanf("%d", &produto->DataFabricacao.dia);
 
-    printf("\nMes de farbicacao: ");
+    printf("\nMes de fabricacao: ");
 
     scanf("%d", &produto->DataFabricacao.mes);
 
-    printf("\nAno de farbicacao: ");
+    printf("\nAno de fabricacao: ");
     fflush(stdin);
     scanf("%d", &produto->DataFabricacao.ano);
 
@@ -46,6 +46,9 @@ void LerProduto(TProdutos *produto)
     printf("\nEstoque: ");
     fflush(stdin);
     scanf("%d", &produto->EstoqueProduto);
+
+    produto->Quantidade_Total_Vendida = 0;
+
 }
 
 //Função para imprimir os produtos
@@ -59,6 +62,7 @@ void ImprimirProduto(TProdutos IProduto)
     printf("\nLote: %d", IProduto.LoteProduto);
     printf("\nPreco unitario: R$%.2f", IProduto.PrecoUnitario);
     printf("\nEstoque: %d", IProduto.EstoqueProduto);
+    printf("\nQuantidade vendida: %d", IProduto.Quantidade_Total_Vendida);
 }
 
 void InserirProduto(TModuloProduto *modulo, TProdutos produto)
@@ -126,4 +130,19 @@ void ExcluirProduto(TModuloProduto *modulo, TProdutos produto)
         modulo->indice = modulo->indice -1;
         printf("\nProduto excluido com sucesso!!");
     }
+}
+
+void MaisVendido(TModuloProduto modulo )
+{
+    int aux, i, j = -1;
+    aux = 0;
+    for( i = 0; i <= modulo.indice; i++ )
+    {
+        if(modulo.vetor[i].Quantidade_Total_Vendida > aux)
+        {
+            aux = modulo.vetor[i].Quantidade_Total_Vendida;
+            j = i;
+        }
+    }
+    ImprimirProduto(modulo.vetor[j]);
 }

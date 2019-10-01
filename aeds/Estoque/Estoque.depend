@@ -46,28 +46,28 @@
 	<stdlib.h>
 	"Vendas.h"
 
-1568933550 source:c:\users\ismae\onedrive\codigos\codigos\estoque\cliente.c
+1569950584 source:c:\users\ismae\onedrive\codigos\codigos\estoque\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Cliente.h"
 
-1568932530 c:\users\ismae\onedrive\codigos\codigos\estoque\cliente.h
+1569950584 c:\users\ismae\onedrive\codigos\codigos\estoque\cliente.h
 	<stdio.h>
 	<stdlib.h>
 
-1568947826 source:c:\users\ismae\onedrive\codigos\codigos\estoque\main.c
+1569954684 source:c:\users\ismae\onedrive\codigos\codigos\estoque\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Vendas.h"
 	"Menu.h"
 
-1567985778 c:\users\ismae\onedrive\codigos\codigos\estoque\produto.h
+1569373904 c:\users\ismae\onedrive\codigos\codigos\estoque\produto.h
 	<stdio.h>
 	<stdlib.h>
 	"Cliente.h"
 
-1568956583 c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.h
+1569954741 c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.h
 	<stdio.h>
 	<stdlib.h>
 	"Cliente.h"
@@ -83,12 +83,12 @@
 1566841164 source:c:\users\ismae\onedrive\codigos\codigos\estoque\modulo.c
 	"Modulo.h"
 
-1568948353 source:c:\users\ismae\onedrive\codigos\codigos\estoque\produto.c
+1569612648 source:c:\users\ismae\onedrive\codigos\codigos\estoque\produto.c
 	<stdio.h>
 	<stdlib.h>
 	"Produto.h"
 
-1568958345 source:c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.c
+1569956315 source:c:\users\ismae\onedrive\codigos\codigos\estoque\vendas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -99,61 +99,13 @@
 	<stdlib.h>
 	"Vendas.h"
 
-1568935889 c:\users\ismae\onedrive\codigos\codigos\estoque\menu.h
+1569953961 c:\users\ismae\onedrive\codigos\codigos\estoque\menu.h
 	<stdio.h>
 	<stdlib.h>
 	"Vendas.h"
 
-1568956583 source:c:\users\ismae\onedrive\codigos\codigos\estoque\menu.c
+1569957318 source:c:\users\ismae\onedrive\codigos\codigos\estoque\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"Menu.h"
-
-1568995400 source:d:\codigos-compartilhados-gerald\aeds\estoque\cliente.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"Cliente.h"
-
-1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\cliente.h
-	<stdio.h>
-	<stdlib.h>
-
-1569008470 source:d:\codigos-compartilhados-gerald\aeds\estoque\main.c
-	<stdio.h>
-	<stdlib.h>
-	"Vendas.h"
-	"Menu.h"
-
-1569008470 d:\codigos-compartilhados-gerald\aeds\estoque\vendas.h
-	<stdio.h>
-	<stdlib.h>
-	"Cliente.h"
-	"Produto.h"
-
-1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\produto.h
-	<stdio.h>
-	<stdlib.h>
-	"Cliente.h"
-
-1568995400 d:\codigos-compartilhados-gerald\aeds\estoque\menu.h
-	<stdio.h>
-	<stdlib.h>
-	"Vendas.h"
-
-1569008470 source:d:\codigos-compartilhados-gerald\aeds\estoque\menu.c
-	<stdio.h>
-	<stdlib.h>
-	"Menu.h"
-
-1569008470 source:d:\codigos-compartilhados-gerald\aeds\estoque\produto.c
-	<stdio.h>
-	<stdlib.h>
-	"Produto.h"
-
-1569008470 source:d:\codigos-compartilhados-gerald\aeds\estoque\vendas.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"Vendas.h"
 

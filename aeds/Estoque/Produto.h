@@ -15,6 +15,7 @@ typedef struct prdutos
     int LoteProduto;
     float PrecoUnitario;
     int EstoqueProduto;
+    int Quantidade_Total_Vendida;
 
 } TProdutos;
 
@@ -32,6 +33,6 @@ int PesquisarProduto(TModuloProduto modulo, TProdutos produto);
 void ImprimirGeral(TModuloProduto modulo, TProdutos IGProduto);
 void AlterarProduto(TModuloProduto *modulo, TProdutos produto);
 void ExcluirProduto(TModuloProduto *modulo, TProdutos produto);
-
+void MaisVendido(TModuloProduto modulo);
 
 #endif // PRODUTO_H_INCLUDED

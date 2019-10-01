@@ -13,13 +13,15 @@ int main()
     TModuloProduto modulo1;
     TModuloCliente modulo2;
     TModuloVendas modulo3;
+    TModuloNotaFiscal modulo4;
 
     //Inicialização
     IniciarModuloProduto(&modulo1);
     IniciarModuloCliente(&modulo2);
     IniciarModuloVendas(&modulo3);
+    IniciarModuloNotaFiscal(&modulo4);
 
-    MenuPrincipal(&modulo1, produto1, &modulo2, cliente1, &modulo3, venda1);
+    MenuPrincipal(&modulo1, produto1, &modulo2, cliente1, &modulo3, venda1, &modulo4);
 
     return 0;
 }

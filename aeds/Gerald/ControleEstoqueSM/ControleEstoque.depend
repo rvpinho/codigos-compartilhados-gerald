@@ -47,3 +47,50 @@
 	<stdlib.h>
 	"Vendas.h"
 
+1569010940 source:d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TVendas.h"
+	"Menu.h"
+
+1569010940 d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\tvendas.h
+	<stdio.h>
+	<stdlib.h>
+	"TProduto.h"
+	"TCliente.h"
+
+1569012622 d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\tproduto.h
+	<stdio.h>
+	<stdlib.h>
+	"TCliente.h"
+
+1569010940 d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\tcliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1569010940 d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\menu.h
+	<stdio.h>
+	<stdlib.h>
+	"TVendas.h"
+
+1569010940 source:d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\tcliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TCliente.h"
+	"Menu.h"
+
+1569010940 source:d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\tproduto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"TProduto.h"
+	"TCliente.h"
+	"Menu.h"
+
+1569010940 source:d:\codigos-compartilhados-gerald\aeds\gerald\controleestoquesm\tvendas.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"TVendas.h"
+

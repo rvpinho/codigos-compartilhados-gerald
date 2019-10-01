@@ -3,9 +3,6 @@
 #include <string.h>
 
 #include "TProduto.h"
-#include "TCliente.h"
-#include "Menu.h"
-
 
 
 void LerProduto(TProdutos *produto1)     //REALIZAR LEITURA DOS PRODUTOS

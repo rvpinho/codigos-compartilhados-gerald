@@ -8,11 +8,16 @@ void IniciarModuloVendas(TModuloVendas *modulo)
     modulo->indice = 0;
 }
 
+void IniciarModuloNotaFiscal(TModuloNotaFiscal *modulo)
+{
+    modulo->indice = 0;
+}
+
 //Função Ler Venda
 void LerVendas(TVendas *Venda)
 {
     printf("\n======CADASTRO DE VENDA======");
-    printf("\nDigite o ID do cliente: ");
+    printf("\nDigite o CPF/CNPJ do cliente: ");
     fflush(stdin);
     fgets(Venda->Nome, TAM, stdin);
 
@@ -48,7 +53,7 @@ void LerVendas(TVendas *Venda)
     fflush(stdin);
     scanf("%d", &Venda->DataDoPagamento.ano);
 
-    printf("\nTipo do pagamento: a vista digite 0, no credito digite 1");
+    printf("\nTipo do pagamento: a vista digite 0, no credito digite 1: ");
     fflush(stdin);
     scanf("%d",&Venda->tipo);
 }
@@ -94,6 +99,7 @@ void InserirVendas(TModuloVendas *modulo, TVendas venda, TModuloProduto *moduloP
                     modulo->vetor[modulo->indice] = venda;
                     modulo->vetor[modulo->indice].Peco = modulo->vetor[modulo->indice].Quantidade * moduloP->vetor[i].PrecoUnitario;
                     moduloP->vetor[i].EstoqueProduto = moduloP->vetor[i].EstoqueProduto - modulo->vetor[modulo->indice].Quantidade;
+                    moduloP->vetor[i].Quantidade_Total_Vendida = moduloP->vetor[i].Quantidade_Total_Vendida + venda.Quantidade;
                     modulo->indice++;
                     printf("\nVenda cadastrado com sucesso!!");
                 }
@@ -126,11 +132,11 @@ int PesquisarVendas(TModuloVendas modulo, TVendas venda,  TClientes cliente, TPr
 
     for(i = 0; i <= modulo.indice; i++)
     {
-       j = strcmp(cliente.ID, modulo.vetor[i].Nome);
-       if( j == 0)
-       {
-           clie = i;
-       }
+        j = strcmp(cliente.ID, modulo.vetor[i].Nome);
+        if( j == 0)
+        {
+            clie = i;
+        }
     }
     for(i = 0; i <= modulo.indice; i++)
     {
@@ -144,7 +150,8 @@ int PesquisarVendas(TModuloVendas modulo, TVendas venda,  TClientes cliente, TPr
     {
         printf("\nVenda encontrada!!");
         return clie;
-    }else
+    }
+    else
     {
         printf("\nVenda nao encontrada!!");
     }
@@ -170,17 +177,19 @@ void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC,
         LerVendas(&venda);
         aux = moduloP->vetor[j].EstoqueProduto + modulo->vetor[i].Quantidade; //voltar estoque
 
-        if(moduloP->vetor[i].EstoqueProduto + aux >= venda.Quantidade){
-        modulo->vetor[i] = venda;
+        if(moduloP->vetor[i].EstoqueProduto + aux >= venda.Quantidade)
+        {
+            modulo->vetor[i] = venda;
 
-        modulo->vetor[i].Peco = modulo->vetor[i].Quantidade * moduloP->vetor[i].PrecoUnitario;
-        moduloP->vetor[j].EstoqueProduto = aux- modulo->vetor[i].Quantidade;
-        ImprimirVendas(modulo->vetor[i]);
-        printf("\nVenda alterada com sucesso!!");
-    }else
-    {
-        printf("\nEstoque insuficiente!!");
-    }
+            modulo->vetor[i].Peco = modulo->vetor[i].Quantidade * moduloP->vetor[i].PrecoUnitario;
+            moduloP->vetor[j].EstoqueProduto = aux- modulo->vetor[i].Quantidade;
+            ImprimirVendas(modulo->vetor[i]);
+            printf("\nVenda alterada com sucesso!!");
+        }
+        else
+        {
+            printf("\nEstoque insuficiente!!");
+        }
     }
 }
 
@@ -196,6 +205,66 @@ void ExcluirVendas(TModuloVendas *modulo, TVendas vendas, TModuloCliente moduloC
         }
         modulo->indice = modulo->indice -1;
         printf("\nVenda excluida com sucesso!!");
+    }
+
+}
+
+void VendaVista(TModuloVendas modulo)
+{
+    float ValorTotal = 0;
+    int cont = 0, i;
+
+    for( i = 0; i < modulo.indice; i++)
+    {
+        if( modulo.vetor[i].tipo == 0)
+        {
+            ValorTotal += modulo.vetor[i].Peco;
+            cont++;
+        }
+    }
+
+    printf("\nValor total: %.2f", ValorTotal);
+    printf("\nQuantidade de vendas: %d", cont);
+}
+
+void ComparaCliente(TModuloVendas modulo, TClientes cliente1, TClientes cliente2)
+{
+    int i, j, aux, aux2;
+
+    for( i = 0; i < modulo.indice; i++)
+    {
+        aux = strcmp(modulo.vetor[i].Nome, cliente1.ID);
+        if ( aux == 0)
+        {
+            for( j = 0; j < modulo.indice; j++ )
+            {
+                aux2 = strcmp(modulo.vetor[j].Nome, cliente2.ID);
+                if( aux2 == 0)
+                {
+                    if( modulo.vetor[i].Codigo == modulo.vetor[j].Codigo)
+                    {
+                        printf("\nCodigo do produto: %d", modulo.vetor[i].Codigo);
+                    }
+                }
+            }
+        }
+    }
+}
+
+void NotaFiscal(TModuloVendas modulo, TClientes cliente, TData data, TModuloNotaFiscal *ModuloNota)
+{
+    int i, aux;
+    for( i = 0; i < modulo.indice; i++)
+    {
+        aux = strcmp( modulo.vetor[i].Nome, cliente.ID);
+        if( (aux == 0) && (modulo.vetor[i].DataDeVenda.dia == data.dia) && (modulo.vetor[i].DataDeVenda.mes == data.mes) && (modulo.vetor[i].DataDeVenda.ano == data.ano))
+        {
+            ModuloNota->vetor[ModuloNota->indice] = modulo.vetor[i];
+            ModuloNota->indice++;
+            printf("\n==========NOTA FISCAL==========");
+            ImprimirVendas(modulo.vetor[i]);
+            printf("\nOBRIGADO PELA PREFERENCIA, VOLTE SEMPRE!");
+        }
     }
 
 }

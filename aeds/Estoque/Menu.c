@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "Menu.h"
 
-void MenuPrincipal(TModuloProduto *ModuloP, TProdutos produto, TModuloCliente *ModuloC, TClientes Clientes, TModuloVendas *ModuloV, TVendas vendas )
+void MenuPrincipal(TModuloProduto *ModuloP, TProdutos produto, TModuloCliente *ModuloC, TClientes Clientes, TModuloVendas *ModuloV, TVendas vendas, TModuloNotaFiscal *ModuloNota )
 {
     int opcao = 0;
     do
@@ -24,13 +24,16 @@ void MenuPrincipal(TModuloProduto *ModuloP, TProdutos produto, TModuloCliente *M
             SubMenuVenda(ModuloP, produto,ModuloC, Clientes, ModuloV, vendas);
             break;
         case 4:
-            printf("\nSaindo do sistema!");
+            SubMenuProva(ModuloP, produto, ModuloC, Clientes, ModuloV, vendas, ModuloNota );
+            break;
+        case 5:
+            printf("\nSaindo do sistema!\n");
             system("PAUSE");
         default:
             printf("digite uma opcao valida!");
             break;
         }
-    }while( opcao != 4 );
+    }while( opcao != 5 );
 }
 
 void SubMenuProduto(TModuloProduto* ModuloP, TProdutos produto)
@@ -258,13 +261,90 @@ void SubMenuCliente(TModuloCliente* ModuloC, TClientes cliente)
     }while( opcao != 7 );
 }
 
+void SubMenuProva(TModuloProduto* ModuloP, TProdutos produto, TModuloCliente* ModuloC, TClientes Clientes, TModuloVendas* ModuloV, TVendas vendas, TModuloNotaFiscal *ModuloNota)
+{
+    int opcao = 0;
+    int i;
+    TClientes cliente2;
+    TData data;
+    do
+    {
+        system("cls");
+        MSG_Prova();
+        printf("\nDigite uma opcao:");
+        fflush(stdin);
+        scanf("%d", &opcao);
+        switch(opcao)
+        {
+        case 1:
+            MaisVendido(*ModuloP);
+            printf("\n");
+            system("PAUSE");
+            break;
+        case 2:
+            VendaVista(*ModuloV);
+            printf("\n");
+            system("PAUSE");
+            break;
+        case 3:
+            printf("\nDigite o CPF/CNPJ do cliente:");
+            fflush(stdin);
+            fgets(Clientes.ID, TAM, stdin);
+            i = PesquisarCliente(*ModuloC, Clientes);
+            if( i != -1)
+            {
+            printf("\nDigite o CPF/CNPJ do cliente:");
+            fflush(stdin);
+            fgets(cliente2.ID, TAM, stdin);
+            i = PesquisarCliente(*ModuloC, cliente2);
+            if( i != -1)
+                {
+                    ComparaCliente(*ModuloV, Clientes, cliente2);
+                }
+            }
+            printf("\n");
+            system("PAUSE");
+            break;
+        case 4:
+            printf("\nDigite o CPF/CNPJ do cliente:");
+            fflush(stdin);
+            fgets(Clientes.ID, TAM, stdin);
+            i = PesquisarCliente(*ModuloC, Clientes);
+            if( i != -1)
+            {
+                printf("\nDigite o dia: ");
+                fflush(stdin);
+                scanf("%d", &data.dia);
+                printf("\nDigite o mes: ");
+                fflush(stdin);
+                scanf("%d", &data.mes);
+                printf("\nDigite o ano: ");
+                fflush(stdin);
+                scanf("%d", &data.ano);
+                NotaFiscal(*ModuloV, Clientes, data, ModuloNota);
+            }
+            printf("\n");
+            system("PAUSE");
+            break;
+        case 5:
+             printf("Retornando ao menu principal");
+            printf("\n");
+            system("PAUSE");
+        default:
+            printf("digite uma opcao valida!");
+            break;
+        }
+        }while(opcao != 5);
+        }
+
 void MSG_Principal()
 {
     printf("\n|======MENU======|");
     printf("\n| [1] PRODUTO    |");
     printf("\n| [2] CLIENTE    |");
     printf("\n| [3] VENDAS     |");
-    printf("\n| [4] SAIR       |");
+    printf("\n| [4] PROVA      |");
+    printf("\n| [5] SAIR       |");
     printf("\n|================|");
 
 }
@@ -306,4 +386,15 @@ void MSG_Vendas()
     printf("\n| [6] IMPRIMIR GERAL  |");
     printf("\n| [7] VOLTAR          |");
     printf("\n|=====================|");
+}
+
+void MSG_Prova()
+{
+    printf("\n|========MENU PROVA========|");
+    printf("\n| [1]PRODUTO MAIS VENDIDO  |");
+    printf("\n| [2]VENDAS A VISTA        |");
+    printf("\n| [3]COMPARAR CLIENTE      |");
+    printf("\n| [4]NOTA FISCAL           |");
+    printf("\n| [5]VOLTAR                |");
+    printf("\n|==========================|");
 }

@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "TCliente.h"
-#include "Menu.h"
 
 
 void LerCliente(TClientes *cliente1) //FUNÇÃO PARA LER O CLIENTE

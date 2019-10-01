@@ -50,4 +50,5 @@ void ImprimirGeralC(TModuloCliente modulo, TClientes cliente);
 void AlterarCliente(TModuloCliente *modulo, TClientes cliente);
 void ExcluirCliente(TModuloCliente *modulo, TClientes cliente);
 
+
 #endif // CLIENTE_H_INCLUDED
