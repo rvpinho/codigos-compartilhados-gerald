@@ -43,7 +43,7 @@ void ImprimirCliente (TClientes impcliente);
 int PesquisarCliente(TModuloCliente modulo, TClientes Cliente);
 void IniciarModuloCliente(TModuloCliente *modulo);
 void InserirCliente(TModuloCliente *modulo, TClientes clientes);
-void ImprimirGeralCliente(TModuloCliente *modulo);
+void ImprimirGeralCliente(TModuloCliente modulo, TClientes Cliente);
 void AlterarCliente(TModuloCliente *modulo, TClientes Cliente);
 void ExcluirCliente(TModuloCliente *modulo, TClientes Cliente);
 

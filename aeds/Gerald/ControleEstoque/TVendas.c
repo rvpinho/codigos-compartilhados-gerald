@@ -2,8 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "TVendas.h"    //INCLUIR .H DE VENDAS
+#include "TVendas.h"
 
+void IniciarModuloVendas(TModuloVendas *modulo)
+{
+    modulo ->indice = 0;
+
+}
 
 void LerVendas(TVendas *vendaa)
 {
@@ -79,11 +84,7 @@ int PesquisarVendas(TModuloVendas modulo, TVendas venda, TModuloCliente moduloC,
 
     return -1;
 }
-void IniciarModuloVendas(TModuloVendas *modulo)
-{
-    modulo ->indice = 0;
 
-}
 void InserirVendas(TModuloVendas *modulo, TVendas vendas)
 {
     if(modulo->indice < TAM)  //SE O PONTEIRO INDICE DE MODULO FOR MENOR QUE O TAMANHO
@@ -140,5 +141,83 @@ void ExcluirVenda(TModuloVendas *modulo, TVendas Venda)
         }
     }
 
+}
+
+void VendasAVista(TModuloVendas modulo)
+{
+
+    float ValorTotal;
+    int Contador, i;
+    ValorTotal = 0;
+    Contador = 0;
+
+    for(i=0; i<modulo.indice; i++)
+    {
+        if(modulo.vetor[i].tipo == 0)
+        {
+
+            ValorTotal +=modulo.vetor[i].Preco;
+            Contador++;
+        }
+    }
+
+    printf("FORAM VENDIDAS %d UNIDADE E ", Contador);
+    printf("O VALOR TOTAL VENDIDO FOI DE: R$%.2f", ValorTotal);
 
 }
+
+
+void CompraComum(TModuloVendas modulo, TClientes Cliente1, TClientes Cliente2)
+{
+
+    int i, j, auxi, auxii;
+
+    for(i=0; i<modulo.indice; i++)
+    {
+
+        auxi=strcmp(modulo.vetor[i].Nome, Cliente1.ID);
+
+        if(auxi == 0)
+        {
+            for(j=0; j<modulo.indice; j++)
+            {
+
+                auxii=strcmp(modulo.vetor[j].Nome, Cliente2.ID);
+
+                if(auxii == 0)
+                {
+
+                    if(modulo.vetor[i].Codigo == modulo.vetor[j].Codigo)
+                    {
+                        printf("O CODIGO DO PRODUTO SOLICITADO E: %d", modulo.vetor.Codigo);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+void GerarNotaFiscal(TModuloVendas modulo, TClientes Cliente, TData data, TModuloNotaFiscal *Nfiscal)
+    {
+
+        int i, aux;
+
+        for (i=0; i < modulo.indice; i++)
+        {
+
+            aux = strcmp(modulo.vetor[i].Nome, Cliente.ID);
+
+            if( (aux==0) && (modulo.vetor[i].DataDeVenda.dia == data.dia) && (modulo.vetor[i].DataDeVenda.mes == data.mes) && (modulo.vetor[i].DataDeVenda.ano == data.ano) )
+            {
+
+                Nfiscal->vetor[Nfiscal->indice] = modulo.vetor[i];
+                Nfiscal->indice++;
+
+                printf("\n ----------> NOTA FISCAL <---------");
+                printf("\nVENDAS:");
+                ImprimirVendas(modulo.vetor[i]);
+            }
+
+        }
+    }

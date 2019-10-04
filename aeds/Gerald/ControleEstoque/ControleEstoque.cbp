@@ -35,17 +35,11 @@
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Menu.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Menu.h" />
 		<Unit filename="TCliente.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="TCliente.h" />
-		<Unit filename="TModulo.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="TModulo.h" />
 		<Unit filename="TProduto.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -14,6 +14,7 @@ typedef struct vendas
     TData DataDeVenda;
     TData DataDoPagamento;
     int tipo;
+    float Preco;
 } TVendas;
 
 typedef struct moduloVendas
@@ -21,6 +22,12 @@ typedef struct moduloVendas
     TVendas vetor[TAM];
     int indice;
 } TModuloVendas;
+
+typedef struct moduloNotaFiscal
+{
+        TVendas vetor[TAM];
+        int indice;
+}TModuloNotaFiscal;
 
 void LerVendas(TVendas *vendaa);
 void ImprimirVendas(TVendas impvendas);
@@ -30,5 +37,10 @@ void InserirVendas(TModuloVendas *modulo, TVendas vendas);
 void ImprimirGeralVendas(TModuloVendas modulo);
 void AlterarVendas(TModuloVendas *modulo, TVendas venda, TModuloCliente moduloC, TClientes cliente, TModuloProduto moduloP, TProdutos produto);
 void ExcluirVenda(TModuloVendas *modulo, TVendas Venda);
+
+void VendasAVista(TModuloVendas modulo);
+void CompraComum(TModuloVendas modulo, TClientes Cliente1, TClientes Cliente2);
+void GerarNotaFiscal(TModuloVendas modulo, TClientes Cliente, TData data, TModuloNotaFiscal *Nfiscal);
+
 
 #endif // TVENDAS_H_INCLUDED

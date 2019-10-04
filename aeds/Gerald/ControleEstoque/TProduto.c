@@ -3,11 +3,18 @@
 #include <string.h>
 
 #include "TProduto.h"
+#include "TCliente.h"
 
+
+
+void IniciarModuloProduto(TModuloProduto *modulo)
+{
+    modulo->indice=0;
+}
 
 void LerProduto(TProdutos *produto1)     //REALIZAR LEITURA DOS PRODUTOS
 {
-    printf("\n------CADASTRANDO PRODUTO------")
+    printf("\n------CADASTRANDO PRODUTO------");
     printf("\nINSIRA O CODIGO DO PRODUTO: ");
     fflush(stdin);
     scanf("%d", &produto1->CodigoProduto);
@@ -51,13 +58,10 @@ void ImprimirProduto (TProdutos impproduto)
     printf("NOME DO PRODUTO: %s",impproduto.NomeProduto);
     printf("\nDESCRICAO: %s", impproduto.DescricaoProduto);
     printf("\nLOTE DE PRODUCAO: %d  -  DATA DE FABRICACAO: %d/%d/%d", impproduto.LoteProduto, impproduto.DataFabricacao.dia, impproduto.DataFabricacao.mes, impproduto.DataFabricacao.ano);
-    printf("\nVALOR UNITARIO: %.2f  -  ESTOQUE INICIAL: %.2f", impproduto.PrecoUnitario, impproduto.EstoqueProduto);
+    printf("\nVALOR UNITARIO: %.2f  -  ESTOQUE INICIAL: %d", impproduto.PrecoUnitario, impproduto.EstoqueProduto);
 }
 
-void IniciarModuloProduto(TModuloProduto *modulo)
-{
-    modulo->indice=0;
-}
+
 
 void InserirProduto(TModuloProduto *modulo, TProdutos produto)
 {
@@ -72,7 +76,6 @@ void InserirProduto(TModuloProduto *modulo, TProdutos produto)
         printf("MEMORIA CHEIA: NAO E POSSIVEL CADASTRAR!");
     }
 }
-
 
 int PesquisarProduto(TModuloProduto modulo, TProdutos produto)
 {
@@ -90,7 +93,6 @@ int PesquisarProduto(TModuloProduto modulo, TProdutos produto)
     return -1;
 }
 
-
 void ImprimirGeral(TModuloProduto modulo, TProdutos produto)
 {
     int i;
@@ -106,7 +108,7 @@ void AlterarProduto(TModuloProduto *modulo, TProdutos Produto)
 
     if (i!=-1)
     {
-        LerProduto(Produto);
+        LerProduto(&Produto);
         modulo->vetor[i]=Produto;
         ImprimirProduto(modulo->vetor[i]);
         printf("PRODUTO ALTERADO COM SUCESSO!");
@@ -120,20 +122,36 @@ void AlterarProduto(TModuloProduto *modulo, TProdutos Produto)
 
 void ExcluirProduto(TModuloProduto *modulo, TProdutos Produto)
 {
-    int i,n;
+    int i, j;
     i = PesquisarProduto(*modulo, Produto);
 
-    if(i=!-1)
+    if(i =! -1)
     {
-       modulo->indice--;
+        modulo->indice--;
 
         for(i=0; i<modulo->indice; i++)
         {
-            for(int j=i; j<modulo->indice; j++)
+            for(j=i; j<modulo->indice; j++)
             {
                 modulo->vetor[j].CodigoProduto = modulo->vetor[j+1].CodigoProduto;
             }
             printf("PRODUTO EXCLUIDO COM SUCESSO");
         }
     }
+}
+
+
+void EncontraMaisVendido(TModuloProduto modulo)
+{
+    int i, j, aux;
+    aux=0;
+    j =-1;
+
+    for(i=0; i <= modulo.indice; i++){
+        if (modulo.vetor[i].TotalVendido > aux){
+          aux = modulo.vetor[i].TotalVendido;
+          j = i;
+        }
+    }
+    ImprimirProduto(modulo.vetor[i]);
 }

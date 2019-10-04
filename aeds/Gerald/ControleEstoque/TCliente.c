@@ -3,6 +3,11 @@
 #include <string.h>
 #include "TCliente.h"
 
+void IniciarModuloCliente(TModuloCliente *modulo)
+{
+    modulo ->indice = 0;
+
+}
 
 void LerCliente(TClientes *cliente1) //FUNÇÃO PARA LER O CLIENTE
 {
@@ -105,11 +110,7 @@ int PesquisarCliente(TModuloCliente modulo, TClientes Cliente)
     return -1;
 }
 
-void IniciarModuloCliente(TModuloCliente *modulo)
-{
-    modulo ->indice = 0;
 
-}
 void InserirCliente(TModuloCliente *modulo, TClientes clientes)
 {
 
@@ -124,13 +125,15 @@ void InserirCliente(TModuloCliente *modulo, TClientes clientes)
         printf("\nMEMORIA CHEIA: NAO E POSSIVEL CADASTRAR O CLIENTE");      //CASO NAO ATENDA AS CIRCUNSTANCIAS EXIBE MENSAGEM DE FALHA DE MEMORIA
     }
 }
-void ImprimirGeralCliente(TModuloCliente *modulo)
-{void LerCliente(TClientes *cliente1)
-    for(int i = 0; i < modulo->indice; i++)
+void ImprimirGeralCliente(TModuloCliente modulo, TClientes Cliente)
+{
+    int i;
+    for( i = 0; i < modulo.indice; i++)
     {
-        ImprimirCliente(modulo->vetor[i]);
+        ImprimirCliente(modulo.vetor[i]);
     }
 }
+
 void AlterarCliente(TModuloCliente *modulo, TClientes Cliente)
 {
     int i;

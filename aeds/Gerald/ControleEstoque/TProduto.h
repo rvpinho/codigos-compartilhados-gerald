@@ -15,6 +15,8 @@ typedef struct prdutos
     float PrecoUnitario;
     int EstoqueProduto;
 
+    int TotalVendido;
+
 } TProdutos;
 
 typedef struct moduloProduto
@@ -23,7 +25,7 @@ typedef struct moduloProduto
     int indice;
 } TModuloProduto;
 
-void LerProduto(TProdutos *produto1)
+void LerProduto(TProdutos *produto1);
 void ImprimirProduto (TProdutos impproduto);
 int PesquisarProduto(TModuloProduto modulo, TProdutos produto);
 void IniciarModuloProduto(TModuloProduto *modulo);
