@@ -89,6 +89,11 @@ public class CadastroProfessor extends javax.swing.JFrame {
         });
 
         jButton2.setText("Inserir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Limpar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +203,18 @@ public class CadastroProfessor extends javax.swing.JFrame {
         jTextField2.setText(""); 
         jTextField3.setText(""); 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        Professor p = new Professor();
+        p.setID(Integer.valueOf(jTextField1.getText()));
+        p.setNome(jTextField2.getText());
+        p.setEmail(jTextField3.getText());
+        
+        p.professor.add(p); 
+        new GestaoProfessor().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

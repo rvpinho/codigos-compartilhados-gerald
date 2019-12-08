@@ -13,16 +13,11 @@ import java.util.ArrayList;
  */
 public class Professor {
     
+    public static ArrayList<Professor> professor = new ArrayList<Professor>();
     private int ID;
     private String nome;
     private String disciplina;
     
-      public Professor(int ID, String nome, String disciplina, String email) {
-        this.ID = ID;
-        this.nome = nome;
-        this.disciplina = disciplina;
-        this.email = email;
-    }
 
     public int getID() {
         return ID;

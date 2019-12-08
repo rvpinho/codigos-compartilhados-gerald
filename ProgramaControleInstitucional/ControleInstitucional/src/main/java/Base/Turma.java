@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Turma {
     
+    public static ArrayList<Turma> turmas = new ArrayList<Turma>();
     private int ID; 
     private ArrayList<Materia> materia = new ArrayList<>();
   

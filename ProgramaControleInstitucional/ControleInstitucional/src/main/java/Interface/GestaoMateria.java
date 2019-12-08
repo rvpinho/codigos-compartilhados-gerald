@@ -5,12 +5,18 @@
  */
 package Interface;
 
+import Base.Materia;
+import Base.Professor;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Rafael
  */
 public class GestaoMateria extends javax.swing.JFrame {
 
+    public static int indice = -1;
     /**
      * Creates new form Cadastro
      */
@@ -31,6 +37,7 @@ public class GestaoMateria extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -38,9 +45,43 @@ public class GestaoMateria extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
         jLabel1.setText("GESTÃO DE MATÉRIA");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Nome", "Professor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setRowHeight(22);
+        jScrollPane1.setViewportView(jTable1);
 
         jTextField4.setText("Pesquisa");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +105,11 @@ public class GestaoMateria extends javax.swing.JFrame {
         });
 
         jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +196,7 @@ public class GestaoMateria extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-      //  new CadastroMateria(temcoisaaqui).setVisible(true);
+        new EditarMateria().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -159,6 +205,49 @@ public class GestaoMateria extends javax.swing.JFrame {
         new Inicio().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       
+        try {
+            DefaultTableModel TF = (DefaultTableModel) jTable1.getModel();
+            TF.setNumRows(0);
+
+            Materia mtemp = new Materia();
+            Professor ptemp = new Professor();
+            for (int i = 0; i < mtemp.materias.size(); i++) {
+                for(int j=0 ;j < ptemp.professor.size();j++){
+                        if(mtemp.materias.get(i).getProfessor() == ptemp.professor.get(j).getID()){
+                            TF.addRow(new Object[]{
+                            mtemp.materias.get(i).getID(),
+                            mtemp.materias.get(i).getDisciplina(), 
+                            ptemp.professor.get(j).getNome(),});
+                        }
+               }
+                
+            }
+        } catch (Exception ex) {
+            
+        }    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        indice = jTable1.getSelectedRow();
+        
+        String ID = jTable1.getValueAt(indice, 1).toString();
+    
+         
+        try {
+            if (indice >= 0 ){
+                Materia mtemp = new Materia();
+                mtemp.materias.remove(indice);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
+        new GestaoMateria().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,6 +356,7 @@ public class GestaoMateria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,8 @@
 package Interface;
 
 import Base.Materia;
+import Base.Professor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +15,7 @@ import Base.Materia;
  */
 public class CadastroMateria extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Cadastro
      */
@@ -88,6 +91,11 @@ public class CadastroMateria extends javax.swing.JFrame {
         });
 
         jButton2.setText("Inserir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Limpar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -106,15 +114,11 @@ public class CadastroMateria extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(263, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(53, 53, 53))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 442, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(33, 33, 33)
                         .addComponent(jButton3)
@@ -137,6 +141,10 @@ public class CadastroMateria extends javax.swing.JFrame {
                                 .addGap(94, 94, 94)
                                 .addComponent(jLabel5)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(156, 156, 156))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,18 +208,44 @@ public class CadastroMateria extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-        if(jComboBox1.getSelectedIndex().equals("<Escolha um professor>")){
-            JOpitionPane.showMensageDialog(null, "Opção inválida, selecione um nome válido", null, WIDTH);
-        }
+//        
+//        if(jComboBox1.getSelectedIndex().equals("<Escolha um professor>")){
+//            JOpitionPane.showMensageDialog(null, "Opção inválida, selecione um nome válido", null, WIDTH);
+//        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
       
-        
-        jComboBox1.setActionCommand(" ");
+      Professor ptemp = new Professor();        
+        for (int i = 0; i < ptemp.professor.size(); i++) {
+
+                jComboBox1.addItem(ptemp.professor.get(i).getNome());
+            }
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        Materia m = new Materia();
+        m.setID(jTextField1.getText());     
+        m.setDisciplina(jTextField2.getText());
+        Professor ptemp = new Professor();
+        int aux=-1;
+        for (int i = 0; i < ptemp.professor.size(); i++) {
+            if(ptemp.professor.get(i).getNome().equals(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()))){
+                aux = ptemp.professor.get(i).getID();
+            }
+        }
+        if(aux!= -1){
+        m.setProfessor(aux); 
+        m.materias.add(m);
+            JOptionPane.showMessageDialog(null, "De bom");
+            new GestaoMateria().setVisible(true);
+            dispose();
+        }else{
+        JOptionPane.showMessageDialog(null, "Não De bom");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,21 +5,20 @@
  */
 package Base;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rafael
  */
 public class Aluno {
     
+    public static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     private int ID;
-    private String nome;   
+    private String nome;
+    private String email;
+    private String turma; //decidir string ou int
 
-    public Aluno(int ID, String nome, String email, int turma) {
-        this.ID = ID;
-        this.nome = nome;
-        this.email = email;
-        this.turma = turma;
-    }
 
     public int getID() {
         return ID;

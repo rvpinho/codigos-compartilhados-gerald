@@ -5,19 +5,19 @@
  */
 package Base;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rafael
  */
 public class Materia {
     
+    public static ArrayList<Materia> materias = new ArrayList<Materia>();
+    
     private String ID;
 
-    public Materia(String ID, String disciplina, int professor) {
-        this.ID = ID;
-        this.disciplina = disciplina;
-        this.professor = professor;
-    }
+    
     private String disciplina;
     private int professor;
 
@@ -43,5 +43,9 @@ public class Materia {
 
     public void setProfessor(int professor) {
         this.professor = professor;
+    }
+
+    public void setNome(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
