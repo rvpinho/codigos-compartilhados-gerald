@@ -44,13 +44,11 @@ public class Aluno {
         this.email = email;
     }
 
-    public int getTurma() {
+    public String getTurma() {
         return turma;
     }
 
-    public void setTurma(int turma) {
+    public void setTurma(String turma) {
         this.turma = turma;
     }
-    private String email;
-    private int turma;
 }

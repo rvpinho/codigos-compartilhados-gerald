@@ -196,8 +196,16 @@ public class GestaoMateria extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        new EditarMateria().setVisible(true);
-        dispose();
+        indice = jTable1.getSelectedRow();
+        
+        try {
+            if (indice >= 0 ) {
+                new EditarMateria().setVisible(true);
+                dispose();            
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

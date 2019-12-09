@@ -137,7 +137,7 @@ private DefaultListModel<Materia> listModel;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTextField2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton4)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(188, Short.MAX_VALUE)
@@ -210,11 +210,15 @@ private DefaultListModel<Materia> listModel;
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-           Materia mtemp = new Materia();
+        listModel = new DefaultListModel<>();
+        Materia mtemp = new Materia();
+           for(int i=0; i<mtemp.materias.size();i++){
+               if(mtemp.materias.get(i).getDisciplina().equals(jTextField2.getText())){
+                    listModel.addElement(mtemp.materias.get(i));
+               }
+           }
            
-           if (mtemp != null) {
-		listModel.addElement(mtemp);
-            }
+           jScrollPane1.setViewportView(jList1);
            jList1.setCellRenderer(new DefaultListCellRenderer() {
 			private static final long serialVersionUID = 1L;
 

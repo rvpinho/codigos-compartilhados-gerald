@@ -27,7 +27,6 @@ public class EditarMateria extends javax.swing.JFrame {
         initComponents();
         jTextField1.setText(String.valueOf(materia.getID()));
         jTextField2.setText(materia.getDisciplina());
-        //jTextField3.setText(materia.getProfessor());   
     }
 
     /**
@@ -60,7 +59,7 @@ public class EditarMateria extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
-        jLabel1.setText("CADASTRO DE MATÉRIA");
+        jLabel1.setText("EDITAR DE MATÉRIA");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setText("ID:");
@@ -216,20 +215,36 @@ public class EditarMateria extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
       
-      Professor ptemp = new Professor();        
+        Professor ptemp = new Professor();        
         for (int i = 0; i < ptemp.professor.size(); i++) {
 
                 jComboBox1.addItem(ptemp.professor.get(i).getNome());
             }
+      Materia m = new Materia();
+        jTextField1.setText(String.valueOf(m.materias.get(indice).getID()));
+        jTextField2.setText(m.materias.get(indice).getDisciplina());
+        
+        for(int j=0 ;j< jComboBox1.getItemCount() ; j++){
+            for(int i =0 ; i < ptemp.professor.size() ; i++){
+                if(jComboBox1.getItemAt(j) == ptemp.professor.get(i).getNome() && ptemp.professor.get(i).getID() == m.materias.get(indice).getProfessor()){
+                    jComboBox1.setSelectedIndex(j);
+                }
+
+            }
+        }
+        
+        
         
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
+        Professor ptemp = new Professor();
         Materia m = new Materia();
+
         m.materias.get(indice).setID(jTextField1.getText());
-        m.materias.get(indice).setNome(jTextField2.getText());
-       Professor ptemp = new Professor();
+        m.materias.get(indice).setDisciplina(jTextField2.getText());
+
         int aux=-1;
         for (int i = 0; i < ptemp.professor.size(); i++) {
             if(ptemp.professor.get(i).getNome().equals(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()))){
@@ -237,6 +252,12 @@ public class EditarMateria extends javax.swing.JFrame {
             }
         }
         
+        if(aux!= -1){
+        m.materias.get(indice).setProfessor(aux);
+        }
+        
+        new GestaoMateria().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
